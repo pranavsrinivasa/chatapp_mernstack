@@ -10,17 +10,13 @@ import { useParams } from "react-router-dom";
 import axios from 'axios';
 import { myContext } from "./Main_container";
 import Skeleton from "@mui/material/Skeleton";
-import io from "socket.io-client";
 
-const ENDPOINT = "http://localhost:5000";
-var socket,chat;
 
 
 function ChatArea() {
   
   const lightTheme = useSelector((state) => state.themeKey);
   const [messageContent, setMessageContent] = useState("");
-  const [socketConnectionStatus,setSocketConnectionStatus] = useState(false);
   const messagesEndRef = useRef(null);
   const dyParams = useParams();
   const [chat_id, chat_user] = dyParams._id.split("&");
@@ -53,26 +49,7 @@ function ChatArea() {
         data = response;
         console.log("Message Fired");
       });
-    socket.emit("new Message",data)
   };
-
-  useEffect(() => {
-    socket = io(ENDPOINT);
-    socket.emit("setup",userData);
-    socket.on("connection",()=>{
-      setSocketConnectionStatus(!socketConnectionStatus);
-    })
-  });
-
-  useEffect(()=>{
-    socket.on("message recieved",(newMessage)=>{
-      if(!allMessagesCopy || allMessagesCopy._id !== newMessage._id){
-
-      }else{
-        setAllMessages([...allMessages],newMessage);
-      }
-    })
-  })
 
 
   useEffect(() => {
@@ -87,12 +64,10 @@ function ChatArea() {
       .then(({ data }) => {
         setAllMessages(data);
         setloaded(true);
-        socket.emit("join chat",chat_id);
         // console.log("Data from Acess Chat API ", data);
       });
-      setAllMessagesCopy(allMessages);
     // scrollToBottom();
-  }, [refresh, chat_id, userData.data.token, allMessages]);
+  }, [refresh, chat_id, userData.data.token]);
 
 
   if (!loaded) {
