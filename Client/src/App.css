@@ -1,0 +1,13 @@
+*{
+  margin: 0;
+}
+
+
+.App {
+  background-image: url("C:\Users\Pranav\chatapp\Client\public\sky-night-png-21616514232.jpg");
+  background-color: #00001c;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
