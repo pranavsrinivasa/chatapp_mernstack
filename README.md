@@ -43,3 +43,10 @@ cd ../Server
 npm start
 ```
 7. Start Messaging !!
+
+## WORKING SCREENSHOTS
+![image](https://github.com/pranavsrinivasa/chatapp_mernstack/assets/126983069/40e6a028-8c66-4076-933a-1476d7311389)
+
+![image](https://github.com/pranavsrinivasa/chatapp_mernstack/assets/126983069/d8be2fc6-e19d-4a03-b696-5958a327afb8)
+
+![image](https://github.com/pranavsrinivasa/chatapp_mernstack/assets/126983069/0843f4a1-19e1-4882-a127-9125af58daea)
