@@ -34,12 +34,12 @@ JWT_SECRET=your_jwt_secret
 ```
 5. Start the backend server
 ```
-cd ../backend
+cd ../Client
 npm start
 ```
 6. Start the frontend development server
 ```
-cd ../frontend
+cd ../Server
 npm start
 ```
 7. Start Messaging !!
